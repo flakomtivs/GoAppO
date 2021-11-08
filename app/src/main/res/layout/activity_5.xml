@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".pages.Activity_5"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                app:civ_border_width="2dp"
+                android:background="@drawable/settings">
+            </Button>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/photo"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="15dp"
+                android:foregroundGravity="left"
+                app:civ_border_color="#FAF7F7"
+                tools:srcCompat="@tools:sample/avatars">
+            </de.hdodenhof.circleimageview.CircleImageView>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="300dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/nativ"
+            android:layout_marginBottom="10dp"
+            android:layout_height="300dp">
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:foregroundGravity="center"
+            android:layout_height="match_parent">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:foregroundGravity="center"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:gravity="center"
+                        android:textColor="#ffffff"
+                        android:text="@string/page_5">
+                    </TextView>
+
+                    <br.com.simplepass.loading_button_lib.customViews.CircularProgressButton
+                        app:spinning_bar_color="@color/next"
+                        android:id="@+id/next"
+                        android:layout_width="100dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/shape"
+                        android:text="next"
+                        android:layout_marginTop="50dp"
+                        android:textColor="#fff"
+                        android:textSize="16dp"
+                        android:layout_gravity="center">
+                    </br.com.simplepass.loading_button_lib.customViews.CircularProgressButton>
+                </LinearLayout>
+            </ScrollView>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
