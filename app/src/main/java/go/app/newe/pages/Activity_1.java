@@ -28,6 +28,8 @@ import com.google.android.gms.tasks.Task;
 import br.com.simplepass.loading_button_lib.customViews.CircularProgressButton;
 import go.app.newe.R;
 import go.app.newe.login.Login;
+import go.app.newe.quick.QuickTour;
+import go.app.newe.settings.Settings_Activity;
 
 public class Activity_1 extends AppCompatActivity {
 
@@ -102,4 +104,9 @@ public class Activity_1 extends AppCompatActivity {
 
 
     }
+
+    public void settings(View view) {
+        Intent intent = new Intent(Activity_1.this, Settings_Activity.class);
+        startActivity(intent);
     }
+}

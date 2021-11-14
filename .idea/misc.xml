@@ -29,6 +29,7 @@
         <entry key="app/src/main/res/layout/activity_4.xml" value="0.459375" />
         <entry key="app/src/main/res/layout/activity_5.xml" value="0.459375" />
         <entry key="app/src/main/res/layout/activity_6.xml" value="0.459375" />
+        <entry key="app/src/main/res/layout/activity_about_app.xml" value="0.459375" />
         <entry key="app/src/main/res/layout/activity_art1.xml" value="0.459375" />
         <entry key="app/src/main/res/layout/activity_art2.xml" value="0.459375" />
         <entry key="app/src/main/res/layout/activity_art3.xml" value="0.459375" />
@@ -40,8 +41,9 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.4453125" />
         <entry key="app/src/main/res/layout/activity_main2.xml" value="0.2677083333333333" />
         <entry key="app/src/main/res/layout/activity_maps.xml" value="0.459375" />
+        <entry key="app/src/main/res/layout/activity_my_profil.xml" value="0.4365942028985507" />
         <entry key="app/src/main/res/layout/activity_quick_tour.xml" value="0.459375" />
-        <entry key="app/src/main/res/layout/activity_settings.xml" value="0.2677083333333333" />
+        <entry key="app/src/main/res/layout/activity_settings.xml" value="0.38996881896280283" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_start.xml" value="0.335" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.459375" />
