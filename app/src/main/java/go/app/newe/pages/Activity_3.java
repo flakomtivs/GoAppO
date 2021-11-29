@@ -2,6 +2,7 @@ package go.app.newe.pages;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -13,6 +14,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -34,6 +36,10 @@ public class Activity_3 extends AppCompatActivity {
     TextView idTV;
     ImageView photoIV;
     CircularProgressButton circularProgressButton;
+
+    LinearLayout bannerContainer;
+    LinearLayout nativeContainer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,12 +47,16 @@ public class Activity_3 extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_3);
 
+        bannerContainer = findViewById(R.id.banner_container);
+        nativeContainer = findViewById(R.id.native_container);
+        setupAds();
+
 
         circularProgressButton = (CircularProgressButton) findViewById(R.id.next);
         circularProgressButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AsyncTask<String, String, String> demoDownload = new AsyncTask<String, String, String>() {
+                @SuppressLint("StaticFieldLeak") AsyncTask<String, String, String> demoDownload = new AsyncTask<String, String, String>() {
                     @Override
                     protected String doInBackground(String... strings) {
                         try {
@@ -94,8 +104,9 @@ public class Activity_3 extends AppCompatActivity {
 
             Glide.with(this).load(personPhoto).into(photoIV);
         }
+    }
 
-
-
+    private void setupAds() {
+        // TODO ====>
     }
 }

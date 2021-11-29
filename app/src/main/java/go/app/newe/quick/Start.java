@@ -25,49 +25,35 @@ public class Start extends AppCompatActivity {
         setContentView(R.layout.activity_start);
 
         final Button button = findViewById(R.id.start);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                button.setBackgroundColor(getResources().getColor(R.color.pressed));
-            }
-        });
+        button.setOnClickListener(view -> button.setBackgroundColor(getResources().getColor(R.color.pressed)));
 
         init();
-        start.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v){
-                new Thread(new Runnable(){
-                    @Override
-                    public void run(){
-                        while (i < 100){
-                            i+=1;
-                            try {
-                                Thread.sleep(50);
-                            } catch (InterruptedException e) {
-                            e.printStackTrace();
-                            }
-                            handler.post(new Runnable() {
-                                @Override
-                                public void run() {
-                                    progressBar.setProgress(i);
-                                    if (i == progressBar.getMax())
-                                        startActivity(new Intent(Start.this, QuickTour.class));
-                                }
-                            });
-                        }
-                    }
-                }).start();
+        start.setOnClickListener(v -> new Thread(() -> {
+            while (i < 100) {
+                i += 1;
+                try {
+                    Thread.sleep(50);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                handler.post(() -> {
+                    progressBar.setProgress(i);
+                    if (i == progressBar.getMax())
+                        showInterstitial();
+                });
             }
-        });
+        }).start());
+    }
 
+    private void showInterstitial() {
 
-
+        // After ad closed
+        startActivity(new Intent(Start.this, QuickTour.class));
     }
 
     private void init() {
-        progressBar = (ProgressBar) findViewById(R.id.progressBar);
-        start = (Button) findViewById(R.id.start);
-
+        progressBar = findViewById(R.id.progressBar);
+        start = findViewById(R.id.start);
     }
 
 }

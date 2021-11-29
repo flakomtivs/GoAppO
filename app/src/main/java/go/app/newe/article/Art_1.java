@@ -15,9 +15,7 @@ import android.widget.Toast;
 import java.util.Random;
 
 import go.app.newe.R;
-import go.app.newe.data.Data_Buttons;
-import go.app.newe.pages.Activity_1;
-import go.app.newe.quick.QuickTour;
+import go.app.newe.list.Data_Buttons;
 
 public class Art_1 extends AppCompatActivity {
 
@@ -31,8 +29,8 @@ public class Art_1 extends AppCompatActivity {
         setContentView(R.layout.activity_art1);
 
         Random addition1 = new Random();
-        int additionint1 = addition1.nextInt(999)+8;
-        TextView additionText1 = (TextView) findViewById(R.id.number_likes);
+        int additionint1 = addition1.nextInt(999) + 8;
+        TextView additionText1 = findViewById(R.id.number_likes);
         String additionString1 = String.valueOf(additionint1);
         additionText1.setText(additionString1);
 
@@ -89,9 +87,9 @@ public class Art_1 extends AppCompatActivity {
         Intent i = new Intent(Intent.ACTION_SEND);
         i.setType("text/plain");
         String sharebody = "Amazing game, You should try it!";
-        String subject = "https://play.google.com/store/apps/details?id=go.app.newe";
-        i.putExtra(Intent.EXTRA_SUBJECT,sharebody);
-        i.putExtra(Intent.EXTRA_TEXT,subject);
-        startActivity(Intent.createChooser(i,"AVADH TUTOR"));
+        String subject = "https://play.google.com/store/apps/detaiwwwwwls?id=go.app.newe";
+        i.putExtra(Intent.EXTRA_SUBJECT, sharebody);
+        i.putExtra(Intent.EXTRA_TEXT, subject);
+        startActivity(Intent.createChooser(i, "AVADH TUTOR"));
     }
 }

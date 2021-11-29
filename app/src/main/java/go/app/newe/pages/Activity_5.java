@@ -13,6 +13,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -34,6 +35,10 @@ public class Activity_5 extends AppCompatActivity {
     TextView idTV;
     ImageView photoIV;
     CircularProgressButton circularProgressButton;
+
+    LinearLayout bannerContainer;
+    LinearLayout nativeContainer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +46,9 @@ public class Activity_5 extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_5);
 
+        bannerContainer = findViewById(R.id.banner_container);
+        nativeContainer = findViewById(R.id.native_container);
+        setupAds();
 
         circularProgressButton = (CircularProgressButton) findViewById(R.id.next);
         circularProgressButton.setOnClickListener(new View.OnClickListener() {
@@ -94,8 +102,9 @@ public class Activity_5 extends AppCompatActivity {
 
             Glide.with(this).load(personPhoto).into(photoIV);
         }
+    }
 
-
-
+    private void setupAds() {
+        // TODO ====>
     }
 }

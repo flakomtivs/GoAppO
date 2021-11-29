@@ -6,12 +6,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".pages.Activity_2"
-    android:orientation="horizontal">
+    android:orientation="vertical"
+    tools:context=".pages.Activity_1">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:orientation="vertical">
 
         <RelativeLayout
@@ -21,53 +22,52 @@
             <Button
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
                 android:layout_marginTop="20dp"
-                android:layout_marginRight="20dp"
-                app:civ_border_width="2dp"
-                android:background="@drawable/settings">
-            </Button>
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/settings"
+                android:onClick="settings"
+                app:civ_border_width="2dp" />
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/photo"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="20dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="15dp"
                 android:foregroundGravity="left"
                 app:civ_border_color="#FAF7F7"
-                tools:srcCompat="@tools:sample/avatars">
-            </de.hdodenhof.circleimageview.CircleImageView>
+                tools:srcCompat="@tools:sample/avatars" />
 
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="300dp"
+            android:layout_height="300dp"
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
-            android:background="@drawable/nativ"
             android:layout_marginBottom="10dp"
-            android:layout_height="300dp">
+            android:background="@drawable/nativ">
 
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:gravity="center"
             android:foregroundGravity="center"
-            android:layout_height="match_parent">
+            android:gravity="center">
 
             <ScrollView
                 android:layout_width="match_parent"
-                android:foregroundGravity="center"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:foregroundGravity="center">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_gravity="center"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:orientation="vertical">
 
                     <TextView
@@ -75,26 +75,30 @@
                         android:layout_height="match_parent"
                         android:layout_margin="10dp"
                         android:gravity="center"
-                        android:textColor="#ffffff"
-                        android:text="@string/page_2">
-                    </TextView>
+                        android:text="@string/page_1"
+                        android:textColor="#ffffff" />
 
                     <br.com.simplepass.loading_button_lib.customViews.CircularProgressButton
-                        app:spinning_bar_color="@color/next"
                         android:id="@+id/next"
                         android:layout_width="100dp"
                         android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="50dp"
                         android:background="@drawable/shape"
                         android:text="next"
-                        android:layout_marginTop="50dp"
                         android:textColor="#fff"
-                        android:textSize="16dp"
-                        android:layout_gravity="center">
-                    </br.com.simplepass.loading_button_lib.customViews.CircularProgressButton>
+                        android:textSize="16sp"
+                        app:spinning_bar_color="@color/next" />
                 </LinearLayout>
             </ScrollView>
         </RelativeLayout>
 
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/banner_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" />
 
 </LinearLayout>

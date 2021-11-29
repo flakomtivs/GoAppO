@@ -15,7 +15,7 @@ import android.widget.Toast;
 import java.util.Random;
 
 import go.app.newe.R;
-import go.app.newe.data.Data_Buttons;
+import go.app.newe.list.Data_Buttons;
 
 public class Art_5 extends AppCompatActivity {
 

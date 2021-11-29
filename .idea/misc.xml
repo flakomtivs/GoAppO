@@ -3,6 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Oussama/Desktop/Apps_Code_Clients/GoApp/app/src/main/res/layout-sw600dp/activity_data_buttons.xml" value="0.18032786885245902" />
+        <entry key="..\:/Users/Oussama/Desktop/Apps_Code_Clients/GoApp/app/src/main/res/layout/activity_1.xml" value="0.2391304347826087" />
+        <entry key="..\:/Users/Oussama/Desktop/Apps_Code_Clients/GoApp/app/src/main/res/layout/activity_2.xml" value="0.2391304347826087" />
+        <entry key="..\:/Users/Oussama/Desktop/Apps_Code_Clients/GoApp/app/src/main/res/layout/activity_3.xml" value="0.25181159420289856" />
+        <entry key="..\:/Users/Oussama/Desktop/Apps_Code_Clients/GoApp/app/src/main/res/layout/activity_4.xml" value="0.25181159420289856" />
+        <entry key="..\:/Users/Oussama/Desktop/Apps_Code_Clients/GoApp/app/src/main/res/layout/activity_5.xml" value="0.25181159420289856" />
+        <entry key="..\:/Users/Oussama/Desktop/Apps_Code_Clients/GoApp/app/src/main/res/layout/activity_6.xml" value="0.25181159420289856" />
+        <entry key="..\:/Users/Oussama/Desktop/Apps_Code_Clients/GoApp/app/src/main/res/layout/activity_art1.xml" value="0.19429347826086957" />
+        <entry key="..\:/Users/Oussama/Desktop/Apps_Code_Clients/GoApp/app/src/main/res/layout/activity_data_buttons.xml" value="0.2694746376811594" />
+        <entry key="..\:/Users/Oussama/Desktop/Apps_Code_Clients/GoApp/app/src/main/res/layout/activity_login.xml" value="0.19199999334161955" />
+        <entry key="..\:/Users/Oussama/Desktop/Apps_Code_Clients/GoApp/app/src/main/res/layout/activity_quick_tour.xml" value="0.2391304347826087" />
+        <entry key="..\:/Users/Oussama/Desktop/Apps_Code_Clients/GoApp/app/src/main/res/layout/activity_splash.xml" value="0.2391304347826087" />
+        <entry key="..\:/Users/Oussama/Desktop/Apps_Code_Clients/GoApp/app/src/main/res/layout/activity_start.xml" value="0.24230072463768115" />
         <entry key="app/src/main/res/drawable-v24/fbcolor.xml" value="0.4682051282051282" />
         <entry key="app/src/main/res/drawable-v24/getstarted.xml" value="0.4682051282051282" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2838541666666667" />

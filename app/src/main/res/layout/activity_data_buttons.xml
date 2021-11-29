@@ -4,41 +4,42 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_centerInParent="true"
     android:background="@drawable/background"
-    tools:context=".data.Data_Buttons">
+    tools:context=".list.Data_Buttons">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:gravity="center"
         android:orientation="vertical">
 
         <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="70dp">
+            android:layout_width="wrap_content"
+            android:layout_height="70dp">
 
-        <Button
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="20dp"
-            app:civ_border_width="2dp"
-            android:background="@drawable/settings">
-        </Button>
+            <Button
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/settings"
+                app:civ_border_width="2dp" />
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/photo"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="15dp"
-            android:foregroundGravity="left"
-            app:civ_border_color="#FAF7F7"
-            tools:srcCompat="@tools:sample/avatars">
-        </de.hdodenhof.circleimageview.CircleImageView>
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/photo"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="15dp"
+                android:foregroundGravity="left"
+                app:civ_border_color="#FAF7F7"
+                tools:srcCompat="@tools:sample/avatars" />
 
-    </RelativeLayout>
+        </RelativeLayout>
 
         <ScrollView
             android:layout_width="match_parent"
@@ -51,13 +52,13 @@
 
                 <Button
                     android:id="@+id/get_started"
-                    android:onClick="get_started"
                     android:layout_width="350dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/getstarted"
                     android:fontFamily="@font/akaju_demo"
+                    android:onClick="get_started"
                     android:text="Get Started"
                     android:textColor="#fff"
                     android:textStyle="bold" />
@@ -84,17 +85,18 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@drawable/nativeback"/>
+                        android:background="@drawable/nativeback" />
 
                     <TextView
+                        android:id="@+id/title_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginStart="10dp"
                         android:layout_marginBottom="10dp"
                         android:text="How to test an iphone inside sim card mobile"
                         android:textColor="#fff"
-                        android:textSize="18dp" />
+                        android:textSize="18sp" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -103,7 +105,6 @@
                     android:layout_margin="10dp"
                     android:layout_marginTop="25dp"
                     android:background="@drawable/btnn">
-
 
 
                     <Button
@@ -117,38 +118,33 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@drawable/shadow" />
+
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@drawable/nativeback"/>
+                        android:background="@drawable/nativeback" />
+
                     <TextView
+                        android:id="@+id/title_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginStart="10dp"
                         android:layout_marginBottom="10dp"
                         android:text="How to test an iphone inside sim card mobile"
                         android:textColor="#fff"
-                        android:textSize="18dp" />
+                        android:textSize="18sp" />
                 </RelativeLayout>
 
-                <RelativeLayout
-                    android:layout_width="360dp"
-                    android:layout_height="280dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:layout_height="50dp"
                     android:layout_gravity="center"
-                    android:layout_marginBottom="15dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/nativeback"
                     android:gravity="center"
-                    android:background="@drawable/nativeback">
-
-
-                    <ImageView
-                        android:layout_width="240dp"
-                        android:layout_height="260dp"
-                        android:layout_gravity="center"
-                        android:foregroundGravity="center"
-                        android:background="@drawable/nativ"/>
-
-                </RelativeLayout>
+                    android:minHeight="200dp" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -156,7 +152,6 @@
                     android:layout_margin="10dp"
                     android:layout_marginTop="25dp"
                     android:background="@drawable/btnn">
-
 
 
                     <Button
@@ -170,19 +165,22 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@drawable/shadow" />
+
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@drawable/nativeback"/>
+                        android:background="@drawable/nativeback" />
+
                     <TextView
+                        android:id="@+id/title_3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginStart="10dp"
                         android:layout_marginBottom="10dp"
                         android:text="How to test an iphone inside sim card mobile"
                         android:textColor="#fff"
-                        android:textSize="18dp" />
+                        android:textSize="18sp" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -191,7 +189,6 @@
                     android:layout_margin="10dp"
                     android:layout_marginTop="25dp"
                     android:background="@drawable/btn2">
-
 
 
                     <Button
@@ -205,19 +202,22 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@drawable/shadow" />
+
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@drawable/nativeback"/>
+                        android:background="@drawable/nativeback" />
+
                     <TextView
+                        android:id="@+id/title_4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginStart="10dp"
                         android:layout_marginBottom="10dp"
                         android:text="How to test an iphone inside sim card mobile"
                         android:textColor="#fff"
-                        android:textSize="18dp" />
+                        android:textSize="18sp" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -226,7 +226,6 @@
                     android:layout_margin="10dp"
                     android:layout_marginTop="25dp"
                     android:background="@drawable/btnn">
-
 
 
                     <Button
@@ -240,19 +239,22 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@drawable/shadow" />
+
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@drawable/nativeback"/>
+                        android:background="@drawable/nativeback" />
+
                     <TextView
+                        android:id="@+id/title_5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginStart="10dp"
                         android:layout_marginBottom="10dp"
                         android:text="How to test an iphone inside sim card mobile"
                         android:textColor="#fff"
-                        android:textSize="18dp" />
+                        android:textSize="18sp" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -262,7 +264,6 @@
                     android:layout_marginTop="25dp"
                     android:layout_marginBottom="10dp"
                     android:background="@drawable/btn2">
-
 
 
                     <Button
@@ -276,22 +277,28 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@drawable/shadow" />
+
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@drawable/nativeback"/>
+                        android:background="@drawable/nativeback" />
+
                     <TextView
+                        android:id="@+id/title_6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginStart="10dp"
                         android:layout_marginBottom="10dp"
                         android:text="How to test an iphone inside sim card mobile"
                         android:textColor="#fff"
-                        android:textSize="18dp" />
+                        android:textSize="18sp" />
                 </RelativeLayout>
+
             </LinearLayout>
+
         </ScrollView>
 
     </LinearLayout>
+
 </RelativeLayout>

@@ -1,12 +1,16 @@
-package go.app.newe.data;
+package go.app.newe.list;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -21,20 +25,35 @@ import go.app.newe.article.Art_3;
 import go.app.newe.article.Art_4;
 import go.app.newe.article.Art_5;
 import go.app.newe.article.Art_6;
-import go.app.newe.pages.Activity_6;
 
 public class Data_Buttons extends AppCompatActivity {
 
     GoogleSignInClient mGoogleSignInClient;
     ImageView photoIV;
 
+    LinearLayout nativeContainer;
+
+    private TextView title1;
+    private TextView title2;
+    private TextView title3;
+    private TextView title4;
+    private TextView title5;
+    private TextView title6;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data_buttons);
-
+        nativeContainer = findViewById(R.id.native_container);
 
         photoIV = findViewById(R.id.photo);
+
+        title1 = findViewById(R.id.title_1);
+        title2 = findViewById(R.id.title_2);
+        title3 = findViewById(R.id.title_3);
+        title4 = findViewById(R.id.title_4);
+        title5 = findViewById(R.id.title_5);
+        title6 = findViewById(R.id.title_6);
 
         // Configure sign-in to request the user's ID, email address, and basic
         // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
@@ -52,12 +71,14 @@ public class Data_Buttons extends AppCompatActivity {
 
             Glide.with(this).load(personPhoto).into(photoIV);
         }
-
-
-
     }
 
-    public void data(View v) {
+    private void setupViews() {
+        // TODO => setup the titles here
+    }
+
+    @SuppressLint("NonConstantResourceId")
+    public void data(@NonNull View v) {
         switch (v.getId()) {
             case R.id.btn1:
                 Intent intent = new Intent(Data_Buttons.this, Art_1.class);

@@ -20,7 +20,11 @@ import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
 
+import java.util.Objects;
+
+import go.app.newe.App;
 import go.app.newe.R;
+import go.app.newe.data.DataManager;
 import go.app.newe.quick.Start;
 
 public class Login extends AppCompatActivity {
@@ -37,7 +41,7 @@ public class Login extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_login);
 
-// TODO: Add adView to your view hierarchy.
+        // TODO: Add adView to your view hierarchy.
         //Initializing Views
         signInButton = findViewById(R.id.sign_in_button);
 
@@ -50,12 +54,7 @@ public class Login extends AppCompatActivity {
         // Build a GoogleSignInClient with the options specified by gso.
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
-        signInButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                signIn();
-            }
-        });
+        signInButton.setOnClickListener(view -> signIn());
     }
 
     private void signIn() {
@@ -79,7 +78,7 @@ public class Login extends AppCompatActivity {
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
-            // Signed in successfully, show authenticated UI.
+            App.getDataManager().setUserImage(Objects.requireNonNull(account.getPhotoUrl()).toString());
             startActivity(new Intent(Login.this, Start.class));
         } catch (ApiException e) {
             // The ApiException status code indicates the detailed failure reason.
@@ -94,7 +93,7 @@ public class Login extends AppCompatActivity {
         // Check for existing Google Sign In account, if the user is already signed in
         // the GoogleSignInAccount will be non-null.
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
-        if(account != null) {
+        if (account != null) {
             startActivity(new Intent(Login.this, Start.class));
         }
         super.onStart();

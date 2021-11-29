@@ -8,3 +8,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Go App"
 include ':app'
+include ':nativetemplates'
