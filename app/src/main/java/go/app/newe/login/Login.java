@@ -75,12 +75,10 @@ public class Login extends AppCompatActivity {
         MobileAds.initialize(this);
         setupView();
 
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                startActivity(new Intent(Login.this, Start.class));
-            }
-        }, 5000);
+        handler.postDelayed(() -> startActivity(new Intent(Login.this, Start.class)), 5000);
+
+        App.appOpenManager.showAdIfAvailable();
+
     }
 
     private void setupView() {

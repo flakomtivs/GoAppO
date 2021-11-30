@@ -19,3 +19,8 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+-keepattributes *Annotation
+-keep class go.app.newe.data.** { *; }
+-keep class com.google.gson.examples.android.model.** { *; }
+-keep class * extends androidx.fragment.app.Fragment{}
