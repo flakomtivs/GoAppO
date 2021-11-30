@@ -3,11 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayout"
+    style="@style/AllBG"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
-    android:orientation="vertical"
-    tools:context=".pages.Activity_1">
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -44,12 +43,12 @@
 
         <LinearLayout
             android:id="@+id/native_container"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginTop="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
             android:minHeight="300dp"
             android:orientation="vertical" />
 
@@ -63,21 +62,25 @@
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:foregroundGravity="center">
+                android:layout_centerInParent="true"
+                android:fillViewport="true"
+                android:foregroundGravity="center"
+                tools:ignore="UselessParent">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/body"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_margin="10dp"
+                        android:layout_marginTop="5dp"
                         android:gravity="center"
                         android:text="@string/page_1"
-                        android:textColor="#ffffff" />
+                        style="@style/AllText"/>
 
                     <br.com.simplepass.loading_button_lib.customViews.CircularProgressButton
                         android:id="@+id/next"
@@ -87,7 +90,7 @@
                         android:layout_marginTop="50dp"
                         android:background="@drawable/shape"
                         android:text="next"
-                        android:textColor="#fff"
+                        style="@style/AllText"
                         android:textSize="16sp"
                         app:spinning_bar_color="@color/next" />
                 </LinearLayout>

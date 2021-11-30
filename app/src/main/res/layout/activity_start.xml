@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#121217"
+    style="@style/AllBG"
     android:baselineAligned="false"
     android:orientation="vertical"
     tools:context=".quick.Start">
@@ -35,8 +35,8 @@
 
                 <ImageView
                     android:id="@+id/imageView3"
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
                     android:layout_gravity="center"
                     android:layout_weight="1"
                     app:srcCompat="@drawable/icon" />
@@ -49,25 +49,17 @@
                     android:fontFamily="@font/akaju_demo"
                     android:text="It's the game of your life!"
                     android:textAlignment="center"
-                    android:textColor="#fff"
+                    style="@style/AllText"
                     android:textSize="20sp" />
             </LinearLayout>
 
 
             <LinearLayout
+                android:id="@+id/native_container"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:id="@+id/imageView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="300dp"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/nativ" />
-
-            </LinearLayout>
+                android:orientation="vertical" />
 
 
             <LinearLayout
@@ -78,8 +70,8 @@
 
                 <Button
                     android:id="@+id/start"
-                    android:layout_width="109dp"
-                    android:layout_height="97dp"
+                    android:layout_width="60dp"
+                    android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:background="@drawable/btn"
                     android:backgroundTint="#8D191919"
@@ -93,7 +85,7 @@
                     android:fontFamily="@font/akaju_demo"
                     android:text="Press to start"
                     android:textAlignment="center"
-                    android:textColor="#fff" />
+                    style="@style/AllText" />
             </LinearLayout>
 
         </LinearLayout>

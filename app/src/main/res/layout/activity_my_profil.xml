@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    style="@style/AllBG"
     tools:context=".settings.My_Profil">
 
     <RelativeLayout
@@ -60,7 +60,7 @@
                     android:layout_marginBottom="15dp"
                     android:gravity="center"
                     android:text="Name: NAME HERE"
-                    android:textColor="#fff"
+                    style="@style/AllText"
                     android:textSize="18sp" />
 
                 <TextView
@@ -70,7 +70,7 @@
                     android:layout_marginBottom="15dp"
                     android:gravity="center"
                     android:text="Email: EMAIL HERE"
-                    android:textColor="#fff"
+                    style="@style/AllText"
                     android:textSize="18sp" />
 
                 <TextView
@@ -80,7 +80,7 @@
                     android:layout_marginBottom="15dp"
                     android:gravity="center"
                     android:text="ID: ID HERE"
-                    android:textColor="#fff"
+                    style="@style/AllText"
                     android:textSize="18sp" />
             </LinearLayout>
 

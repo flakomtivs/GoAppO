@@ -2,9 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/AllBG"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
     tools:context=".settings.Settings_Activity">
 
     <LinearLayout
@@ -35,37 +35,40 @@
             android:layout_height="70dp">
 
             <LinearLayout
-                android:onClick="profil"
-                android:clickable="true"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:clickable="true"
+                android:onClick="profil"
                 android:orientation="horizontal">
+
                 <Button
                     android:id="@+id/profil"
-                    android:onClick="profil"
-                    android:layout_gravity="center"
-                    android:background="@drawable/profil"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
+                    android:layout_gravity="center"
                     android:layout_marginLeft="10dp"
+                    android:background="@drawable/profil"
+                    android:onClick="profil"
                     app:srcCompat="@drawable/profil" />
+
                 <TextView
                     android:id="@+id/textView10"
+                    style="@style/AllText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginLeft="5dp"
                     android:text="My Profil"
-                    android:textColor="#fff"
                     android:textSize="18dp"
                     android:textStyle="bold" />
+
                 <ImageView
                     android:id="@+id/imageView7"
                     android:layout_width="103dp"
-                    android:scaleType="fitStart"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:layout_weight="1"
+                    android:scaleType="fitStart"
                     android:scaleX="-1"
                     app:srcCompat="@drawable/previous"
                     app:tint="#fff" />
@@ -77,37 +80,40 @@
             android:layout_height="70dp">
 
             <LinearLayout
-                android:onClick="share"
-                android:clickable="true"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:clickable="true"
+                android:onClick="share"
                 android:orientation="horizontal">
+
                 <Button
                     android:id="@+id/share"
-                    android:onClick="share"
-                    android:layout_gravity="center"
-                    android:background="@drawable/share"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
+                    android:layout_gravity="center"
                     android:layout_marginLeft="10dp"
+                    android:background="@drawable/share"
+                    android:onClick="share"
                     app:srcCompat="@drawable/profil" />
+
                 <TextView
                     android:id="@+id/share_text"
+                    style="@style/AllText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginLeft="5dp"
                     android:text="Share it!"
-                    android:textColor="#fff"
                     android:textSize="18dp"
                     android:textStyle="bold" />
+
                 <ImageView
                     android:id="@+id/arrow_share"
                     android:layout_width="103dp"
-                    android:scaleType="fitStart"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:layout_weight="1"
+                    android:scaleType="fitStart"
                     android:scaleX="-1"
                     app:srcCompat="@drawable/previous"
                     app:tint="#fff" />
@@ -124,31 +130,34 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
+
                 <Button
                     android:id="@+id/report"
-                    android:layout_gravity="center"
-                    android:background="@drawable/report"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
+                    android:layout_gravity="center"
                     android:layout_marginLeft="10dp"
+                    android:background="@drawable/report"
                     app:srcCompat="@drawable/profil" />
+
                 <TextView
                     android:id="@+id/report_text"
+                    style="@style/AllText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginLeft="5dp"
                     android:text="Report an error"
-                    android:textColor="#fff"
                     android:textSize="18dp"
                     android:textStyle="bold" />
+
                 <ImageView
                     android:id="@+id/arrow_report"
                     android:layout_width="103dp"
-                    android:scaleType="fitStart"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:layout_weight="1"
+                    android:scaleType="fitStart"
                     android:scaleX="-1"
                     app:srcCompat="@drawable/previous"
                     app:tint="#fff" />
@@ -160,36 +169,39 @@
             android:layout_height="70dp">
 
             <LinearLayout
-                android:onClick="update"
-                android:clickable="true"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:clickable="true"
+                android:onClick="update"
                 android:orientation="horizontal">
+
                 <Button
                     android:id="@+id/update"
-                    android:layout_gravity="center"
-                    android:background="@drawable/update"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
+                    android:layout_gravity="center"
                     android:layout_marginLeft="10dp"
+                    android:background="@drawable/update"
                     app:srcCompat="@drawable/profil" />
+
                 <TextView
                     android:id="@+id/update_text"
+                    style="@style/AllText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginLeft="5dp"
                     android:text="App Update"
-                    android:textColor="#fff"
                     android:textSize="18dp"
                     android:textStyle="bold" />
+
                 <ImageView
                     android:id="@+id/update_arrow"
                     android:layout_width="103dp"
-                    android:scaleType="fitStart"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:layout_weight="1"
+                    android:scaleType="fitStart"
                     android:scaleX="-1"
                     app:srcCompat="@drawable/previous"
                     app:tint="#fff" />
@@ -201,49 +213,90 @@
             android:layout_height="70dp">
 
             <LinearLayout
-                android:onClick="about"
-                android:clickable="true"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:clickable="true"
+                android:onClick="about"
                 android:orientation="horizontal">
+
                 <Button
                     android:id="@+id/about"
-                    android:layout_gravity="center"
-                    android:background="@drawable/info"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
+                    android:layout_gravity="center"
                     android:layout_marginLeft="10dp"
+                    android:background="@drawable/info"
                     app:srcCompat="@drawable/profil" />
+
                 <TextView
                     android:id="@+id/aboutText"
+                    style="@style/AllText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginLeft="5dp"
                     android:text="About"
-                    android:textColor="#fff"
                     android:textSize="18dp"
                     android:textStyle="bold" />
+
                 <TextView
                     android:id="@+id/about_text"
+                    style="@style/AllText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginLeft="5dp"
                     android:text="@string/app_name"
-                    android:textColor="#fff"
                     android:textSize="18dp"
                     android:textStyle="bold" />
+
                 <ImageView
                     android:id="@+id/arrow_about"
                     android:layout_width="103dp"
-                    android:scaleType="fitStart"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:layout_weight="1"
+                    android:scaleType="fitStart"
                     android:scaleX="-1"
                     app:srcCompat="@drawable/previous"
                     app:tint="#fff" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clickable="false"
+                android:orientation="horizontal">
+
+                <Button
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/info"
+                    app:srcCompat="@drawable/profil" />
+
+                <TextView
+                    style="@style/AllText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:text="Dark mode"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/dark_mode_switch"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="10dp"
+                    android:checked="true" />
             </LinearLayout>
         </RelativeLayout>
 

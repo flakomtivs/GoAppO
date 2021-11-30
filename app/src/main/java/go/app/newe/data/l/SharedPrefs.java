@@ -23,6 +23,6 @@ public class SharedPrefs implements ISharedPrefs {
 
     @Override
     public String getUserImage() {
-        return mSharedPrefs.getString(IMAGE_URL, "--");
+        return mSharedPrefs.getString(IMAGE_URL, "https://randomuser.me/api/portraits/men/67.jpg");
     }
 }

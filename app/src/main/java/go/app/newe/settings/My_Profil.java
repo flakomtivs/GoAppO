@@ -19,6 +19,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
+import go.app.newe.App;
 import go.app.newe.R;
 import go.app.newe.login.Login;
 
@@ -28,6 +29,7 @@ public class My_Profil extends AppCompatActivity {
     TextView emailTV;
     TextView idTV;
     ImageView photoIV;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,10 +59,10 @@ public class My_Profil extends AppCompatActivity {
             String personId = acct.getId();
             Uri personPhoto = acct.getPhotoUrl();
 
-            nameTV.setText("Name: "+personName);
-            emailTV.setText("Email: "+personEmail);
-            idTV.setText("ID: "+personId);
-            Glide.with(this).load(personPhoto).into(photoIV);
+            nameTV.setText("Name: " + personName);
+            emailTV.setText("Email: " + personEmail);
+            idTV.setText("ID: " + personId);
+            Glide.with(this).load(App.getDataManager().getUserImage()).into(photoIV);
         }
     }
 

@@ -1,5 +1,6 @@
 package go.app.newe.pages;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -9,6 +10,9 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -18,14 +22,30 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.google.android.ads.nativetemplates.NativeTemplateStyle;
+import com.google.android.ads.nativetemplates.TemplateView;
+import com.google.android.gms.ads.AdError;
+import com.google.android.gms.ads.AdLoader;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.FullScreenContentCallback;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.interstitial.InterstitialAd;
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 
 import br.com.simplepass.loading_button_lib.customViews.CircularProgressButton;
+import go.app.newe.App;
 import go.app.newe.R;
+import go.app.newe.data.a.model.Advertisement;
+import go.app.newe.data.a.model.Screen;
+import go.app.newe.data.a.model.ViewItem;
 import go.app.newe.list.Data_Buttons;
+import go.app.newe.list.DialogN;
 
 public class Activity_6 extends AppCompatActivity {
 
@@ -41,6 +61,15 @@ public class Activity_6 extends AppCompatActivity {
 
     LinearLayout bannerContainer;
     LinearLayout nativeContainer;
+
+
+    private InterstitialAd mInterstitialAd;
+
+
+    private DialogN dialogN = DialogN.getInstance();
+
+    Handler handler = new Handler();
+    private Screen mScreen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,10 +100,7 @@ public class Activity_6 extends AppCompatActivity {
                     @Override
                     protected void onPostExecute(String s) {
                         if (s.equals("done")) {
-                            Intent intent = new Intent(Activity_6.this, Data_Buttons.class);
-                            startActivity(intent);
-
-
+                            showInterstitial();
                             circularProgressButton.doneLoadingAnimation(Color.parseColor("#333639"), BitmapFactory.decodeResource(getResources(), R.drawable.ic_done_white_48dp));
 
 
@@ -89,25 +115,130 @@ public class Activity_6 extends AppCompatActivity {
 
         photoIV = findViewById(R.id.photo);
 
-        // Configure sign-in to request the user's ID, email address, and basic
-        // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestEmail()
-                .build();
-
-        // Build a GoogleSignInClient with the options specified by gso.
-        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-
-        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(Activity_6.this);
-        if (acct != null) {
-
-            Uri personPhoto = acct.getPhotoUrl();
-
-            Glide.with(this).load(personPhoto).into(photoIV);
-        }
+        photoIV.setOnClickListener((v) -> {
+            if (dialogN == null) {
+                dialogN = DialogN.getInstance();
+            }
+            dialogN.setListener(() -> {
+                if (dialogN != null)
+                    dialogN.dismiss();
+                Glide.with(this).load(App.getDataManager().getUserImage()).into(photoIV);
+            });
+            dialogN.show(getSupportFragmentManager(), "A_TAG");
+        });
+        Glide.with(this).load(App.getDataManager().getUserImage()).into(photoIV);
     }
 
     private void setupAds() {
-        // TODO ====>
+        for (Screen screen : App.getAppConfig().getScreens()) {
+            if (screen.getName().equals("step_4_screen")) {
+                mScreen = screen;
+                break;
+            }
+        }
+
+        for (ViewItem item : mScreen.getViewItems()) {
+            if (item.getName().equals("body_1") && item.getType().equals("textView")) {
+                TextView body = findViewById(R.id.body);
+                body.setText(item.getText());
+            }
+        }
+
+
+        handler.post(() -> {
+            if (mScreen != null) {
+                for (Advertisement advertisement : mScreen.getAdvertisements()) {
+                    if (advertisement.getProvider().equals("admob")
+                            && advertisement.getType().equals("native")
+                            && advertisement.getName().equals("native_1")
+                            && advertisement.getEnabled()
+                            && advertisement.getAdId() != null) {
+                        Log.d("TAG", "setupView: ad id => " + advertisement.getAdId());
+                        AdLoader adLoader = new AdLoader.Builder(Activity_6.this, advertisement.getAdId())
+                                .forNativeAd(nativeAd -> {
+                                    NativeTemplateStyle styles = new NativeTemplateStyle
+                                            .Builder()
+                                            .build();
+                                    LayoutInflater layoutInflater = (LayoutInflater) Activity_6.this.getSystemService(LAYOUT_INFLATER_SERVICE);
+                                    View view = layoutInflater.inflate(R.layout.medium_template_view, nativeContainer);
+                                    TemplateView template = view.findViewById(R.id.my_template);
+                                    template.setStyles(styles);
+                                    template.setNativeAd(nativeAd);
+                                })
+                                .build();
+                        adLoader.loadAd(new AdRequest.Builder().build());
+
+                    }
+
+                    if (advertisement.getProvider().equals("admob")
+                            && advertisement.getType().equals("interstitial")
+                            && advertisement.getName().equals("interstitial_1")
+                            && advertisement.getEnabled()
+                            && advertisement.getAdId() != null) {
+                        AdRequest adRequest = new AdRequest.Builder().build();
+                        InterstitialAd.load(Activity_6.this, advertisement.getAdId(), adRequest,
+                                new InterstitialAdLoadCallback() {
+                                    @Override
+                                    public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
+                                        mInterstitialAd = interstitialAd;
+                                        setListener();
+                                    }
+
+                                    @Override
+                                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                                        // Handle the error
+                                        Log.i("TAG", loadAdError.getMessage());
+                                        mInterstitialAd = null;
+                                    }
+                                });
+                    }
+
+                    if (advertisement.getProvider().equals("admob")
+                            && advertisement.getType().equals("banner")
+                            && advertisement.getName().equals("banner_1")
+                            && advertisement.getEnabled()
+                            && advertisement.getAdId() != null) {
+                        AdView adView = new AdView(this);
+                        adView.setAdSize(AdSize.SMART_BANNER);
+                        adView.setAdUnitId(advertisement.getAdId());
+                        bannerContainer.addView(adView);
+                        adView.loadAd(new AdRequest.Builder().build());
+                    }
+                }
+            }
+        });
+
+
+    }
+
+    private void setListener() {
+        if (mInterstitialAd != null) {
+            mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
+                @Override
+                public void onAdDismissedFullScreenContent() {
+                    startActivity(new Intent(Activity_6.this, Data_Buttons.class));
+                    finish();
+                }
+
+                @Override
+                public void onAdFailedToShowFullScreenContent(@NonNull AdError adError) {
+                }
+
+                @Override
+                public void onAdShowedFullScreenContent() {
+                    mInterstitialAd = null;
+                    Log.d("TAG", "The ad was shown.");
+                }
+            });
+        }
+    }
+
+    private void showInterstitial() {
+        if (mInterstitialAd != null) {
+            mInterstitialAd.show(this);
+        } else {
+            startActivity(new Intent(Activity_6.this, Data_Buttons.class));
+            finish();
+        }
     }
 }

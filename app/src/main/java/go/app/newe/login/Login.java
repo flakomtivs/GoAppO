@@ -5,13 +5,25 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 
+import com.google.android.ads.nativetemplates.NativeTemplateStyle;
+import com.google.android.ads.nativetemplates.TemplateView;
+import com.google.android.gms.ads.AdLoader;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.nativead.NativeAd;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -25,6 +37,8 @@ import java.util.Objects;
 import go.app.newe.App;
 import go.app.newe.R;
 import go.app.newe.data.DataManager;
+import go.app.newe.data.a.model.Advertisement;
+import go.app.newe.data.a.model.Screen;
 import go.app.newe.quick.Start;
 
 public class Login extends AppCompatActivity {
@@ -32,6 +46,9 @@ public class Login extends AppCompatActivity {
     int RC_SIGN_IN = 0;
     SignInButton signInButton;
     GoogleSignInClient mGoogleSignInClient;
+
+    private Screen loginScreen;
+    private Handler handler = new Handler(Looper.getMainLooper());
 
 
     @Override
@@ -55,6 +72,67 @@ public class Login extends AppCompatActivity {
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
         signInButton.setOnClickListener(view -> signIn());
+        MobileAds.initialize(this);
+        setupView();
+
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                startActivity(new Intent(Login.this, Start.class));
+            }
+        }, 5000);
+    }
+
+    private void setupView() {
+        for (Screen screen : App.getAppConfig().getScreens()) {
+            if (screen.getName().equals("login_screen")) {
+                loginScreen = screen;
+                break;
+            }
+        }
+
+        handler.post(() -> {
+            if (loginScreen != null) {
+                for (Advertisement advertisement : loginScreen.getAdvertisements()) {
+                    if (advertisement.getProvider().equals("admob")
+                            && advertisement.getType().equals("native")
+                            && advertisement.getName().equals("native_1")
+                            && advertisement.getEnabled()
+                            && advertisement.getAdId() != null) {
+                        Log.d("TAG", "setupView: ad id => " + advertisement.getAdId());
+                        LinearLayout layout = findViewById(R.id.LinearNat);
+                        AdLoader adLoader = new AdLoader.Builder(this, advertisement.getAdId())
+                                .forNativeAd(nativeAd -> {
+                                    NativeTemplateStyle styles = new NativeTemplateStyle
+                                            .Builder()
+                                            .build();
+                                    LayoutInflater layoutInflater = (LayoutInflater) Login.this.getSystemService(LAYOUT_INFLATER_SERVICE);
+                                    View view = layoutInflater.inflate(R.layout.medium_template_view, layout);
+                                    TemplateView template = view.findViewById(R.id.my_template);
+                                    template.setStyles(styles);
+                                    template.setNativeAd(nativeAd);
+                                })
+                                .build();
+                        adLoader.loadAd(new AdRequest.Builder().build());
+
+                    }
+
+                    if (advertisement.getProvider().equals("admob")
+                            && advertisement.getType().equals("banner")
+                            && advertisement.getName().equals("banner_1")
+                            && advertisement.getEnabled()
+                            && advertisement.getAdId() != null) {
+                        AdView adView = new AdView(this);
+                        LinearLayout ad = findViewById(R.id.banner_container);
+                        adView.setAdSize(AdSize.SMART_BANNER);
+                        adView.setAdUnitId(advertisement.getAdId());
+                        ad.addView(adView);
+                        adView.loadAd(new AdRequest.Builder().build());
+                    }
+                }
+            }
+        });
+
     }
 
     private void signIn() {

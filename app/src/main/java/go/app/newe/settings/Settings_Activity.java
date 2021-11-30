@@ -1,14 +1,18 @@
 package go.app.newe.settings;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.appcompat.widget.SwitchCompat;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.Toast;
 
 import go.app.newe.R;
@@ -20,6 +24,7 @@ public class Settings_Activity extends AppCompatActivity {
 
     private Dialog dialog;
     private Button ShowDialog;
+    private SwitchCompat darkModeSwitch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +63,20 @@ public class Settings_Activity extends AppCompatActivity {
             public void onClick(View v) {
 
                 dialog.show(); // Showing the dialog here
+            }
+        });
+
+        darkModeSwitch = findViewById(R.id.dark_mode_switch);
+        int currentNightMode = getResources().getConfiguration().uiMode
+                & Configuration.UI_MODE_NIGHT_MASK;
+
+        darkModeSwitch.setChecked(currentNightMode != Configuration.UI_MODE_NIGHT_NO);
+
+        darkModeSwitch.setOnCheckedChangeListener((compoundButton, b) -> {
+            if (b && compoundButton.isPressed()) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            } else if (!b && compoundButton.isPressed()) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
             }
         });
 

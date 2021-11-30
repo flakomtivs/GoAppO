@@ -2,6 +2,12 @@ package go.app.newe;
 
 import android.app.Application;
 
+import androidx.appcompat.app.AppCompatDelegate;
+
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+
 import go.app.newe.data.DataManager;
 import go.app.newe.data.a.model.AppConfig;
 import go.app.newe.utils.SchedulerProvider;
@@ -37,6 +43,13 @@ public class App extends Application {
         return schedulerProvider;
     }
 
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        MobileAds.initialize(this, initializationStatus -> {
+        });
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+    }
 
     public App() {
         super();

@@ -68,8 +68,6 @@ public class ApiHelper implements AppConfigApi {
                 .create();
         Retrofit retrofit = new Retrofit
                 .Builder()
-//                .baseUrl("https://api.weloveten.com/")
-//                .baseUrl("http://customViews.test/api/")
                 .baseUrl("https://api.weloveten.com/")
                 .client(okHttpClient)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
