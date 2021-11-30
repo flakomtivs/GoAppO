@@ -20,11 +20,11 @@
 
             <TextView
                 android:id="@+id/textView6"
+                style="@style/AllText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/akaju_demo"
                 android:text="@string/action_settings"
-                android:textColor="#fff"
                 android:textSize="30dp" />
 
 

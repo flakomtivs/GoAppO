@@ -60,7 +60,11 @@ public class App extends Application {
                 .build();
         MobileAds.setRequestConfiguration(r);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-        appOpenManager = new AppOpenManager(this);
+    }
+
+    public static void instantiateOpenManager(String adId) {
+        appOpenManager = new AppOpenManager(App.rootApplication, adId);
+        appOpenManager.fetchAd();
     }
 
     public App() {

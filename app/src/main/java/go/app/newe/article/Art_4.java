@@ -150,8 +150,7 @@ public class Art_4 extends AppCompatActivity {
     }
 
     public void back(View view) {
-        Intent intent = new Intent(Art_4.this, Data_Buttons.class);
-        startActivity(intent);
+        finish();
     }
 
     public void share(View view) {

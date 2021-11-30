@@ -75,10 +75,12 @@ public class Login extends AppCompatActivity {
         MobileAds.initialize(this);
         setupView();
 
-        handler.postDelayed(() -> startActivity(new Intent(Login.this, Start.class)), 5000);
+        handler.postDelayed(() -> startActivity(new Intent(Login.this, Start.class)), 5000);  // TODO => delete this line
 
-        App.appOpenManager.showAdIfAvailable();
-
+        if (App.appOpenManager.isAdAvailable())
+            App.appOpenManager.showAdIfAvailable();
+        else
+            App.appOpenManager.fetchAd();
     }
 
     private void setupView() {

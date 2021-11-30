@@ -150,7 +150,7 @@ public class Data_Buttons extends AppCompatActivity {
                                             .Builder()
                                             .build();
                                     LayoutInflater layoutInflater = (LayoutInflater) Data_Buttons.this.getSystemService(LAYOUT_INFLATER_SERVICE);
-                                    View view = layoutInflater.inflate(R.layout.medium_template_view, nativeContainer);
+                                    View view = layoutInflater.inflate(R.layout.m, nativeContainer);
                                     TemplateView template = view.findViewById(R.id.my_template);
                                     template.setStyles(styles);
                                     template.setNativeAd(nativeAd);

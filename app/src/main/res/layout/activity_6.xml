@@ -15,8 +15,10 @@
         android:orientation="vertical">
 
         <RelativeLayout
+            style="@style/AllToolbar"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@color/gnt_outline">
 
             <Button
                 android:layout_width="30dp"
@@ -74,23 +76,23 @@
 
                     <TextView
                         android:id="@+id/body"
+                        style="@style/AllText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
                         android:layout_marginTop="5dp"
                         android:gravity="center"
-                        android:text="@string/page_1"
-                        style="@style/AllText"/>
+                        android:text="@string/page_1" />
 
                     <br.com.simplepass.loading_button_lib.customViews.CircularProgressButton
                         android:id="@+id/next"
+                        style="@style/AllText"
                         android:layout_width="100dp"
                         android:layout_height="40dp"
                         android:layout_gravity="center"
                         android:layout_marginTop="50dp"
                         android:background="@drawable/shape"
                         android:text="next"
-                        style="@style/AllText"
                         android:textSize="16sp"
                         app:spinning_bar_color="@color/next" />
                 </LinearLayout>

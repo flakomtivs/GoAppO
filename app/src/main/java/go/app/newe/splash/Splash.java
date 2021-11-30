@@ -13,6 +13,8 @@ import java.util.TimerTask;
 
 import go.app.newe.App;
 import go.app.newe.R;
+import go.app.newe.data.a.model.Advertisement;
+import go.app.newe.data.a.model.Screen;
 import go.app.newe.login.Login;
 import io.reactivex.disposables.CompositeDisposable;
 
@@ -38,7 +40,6 @@ public class Splash extends AppCompatActivity {
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-
                 progressInt = progressInt + 5;
                 progressBar.setProgress(progressInt);
 
@@ -59,6 +60,15 @@ public class Splash extends AppCompatActivity {
                         .observeOn(App.getSchedulerProvider().ui())
                         .subscribe(appConfig -> {
                             App.setAppConfig(appConfig);
+                            for (Screen screen : appConfig.getScreens()) {
+                                if (screen.getName().equals("splash_screen")) {
+                                    for (Advertisement ad : screen.getAdvertisements()) {
+                                        if (ad.getEnabled() && ad.getName().equals("open_ad")) {
+                                            App.instantiateOpenManager(ad.getAdId());
+                                        }
+                                    }
+                                }
+                            }
                             openLoginActivity();
                         }, throwable -> Log.d("TAG", "getAdConfig: " + throwable.getMessage()))
         );

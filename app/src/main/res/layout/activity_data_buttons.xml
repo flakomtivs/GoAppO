@@ -17,6 +17,7 @@
         android:orientation="vertical">
 
         <RelativeLayout
+            android:background="@color/gnt_outline"
             android:layout_width="wrap_content"
             android:layout_height="70dp">
 

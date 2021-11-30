@@ -46,6 +46,7 @@ import go.app.newe.data.a.model.Screen;
 import go.app.newe.data.a.model.ViewItem;
 import go.app.newe.list.Data_Buttons;
 import go.app.newe.list.DialogN;
+import go.app.newe.settings.Settings_Activity;
 
 public class Activity_6 extends AppCompatActivity {
 
@@ -240,5 +241,10 @@ public class Activity_6 extends AppCompatActivity {
             startActivity(new Intent(Activity_6.this, Data_Buttons.class));
             finish();
         }
+    }
+
+    public void settings(View view) {
+        Intent intent = new Intent(this, Settings_Activity.class);
+        startActivity(intent);
     }
 }

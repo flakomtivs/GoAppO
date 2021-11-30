@@ -100,8 +100,7 @@ public class Art_3 extends AppCompatActivity {
     }
 
     public void back(View view) {
-        Intent intent = new Intent(Art_3.this, Data_Buttons.class);
-        startActivity(intent);
+        finish();
     }
 
     private void setupView() {

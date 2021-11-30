@@ -47,6 +47,10 @@
         <item name="android:background">@color/white_bg</item>
     </style>
 
+    <style name="AllToolbar">
+        <item name="android:background">@color/gnt_outline</item>
+    </style>
+
     <style name="AllText" parent="Widget.AppCompat.TextView">
         <item name="android:textColor">@color/black</item>
     </style>

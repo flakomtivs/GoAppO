@@ -27,7 +27,7 @@ public class AppOpenManager implements Application.ActivityLifecycleCallbacks, L
     private Activity currentActivity;
 
     private static final String LOG_TAG = "AppOpenManager";
-    private static final String AD_UNIT_ID = "ca-app-pub-3940256099942544/3419835294";
+    private final String AD_UNIT_ID;
     private AppOpenAd appOpenAd = null;
 
     private AppOpenAd.AppOpenAdLoadCallback loadCallback;
@@ -39,7 +39,8 @@ public class AppOpenManager implements Application.ActivityLifecycleCallbacks, L
     /**
      * Constructor
      */
-    public AppOpenManager(App myApplication) {
+    public AppOpenManager(App myApplication, String adId) {
+        AD_UNIT_ID = adId;
         this.myApplication = myApplication;
         this.myApplication.registerActivityLifecycleCallbacks(this);
         ProcessLifecycleOwner.get().getLifecycle().addObserver(this);
@@ -113,7 +114,7 @@ public class AppOpenManager implements Application.ActivityLifecycleCallbacks, L
                      * @param loadAdError the error.
                      */
                     @Override
-                    public void onAdFailedToLoad(LoadAdError loadAdError) {
+                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
                         Log.d(LOG_TAG, "onAdFailedToShowFullScreenContent: error => " + loadAdError.getMessage());
                     }
 

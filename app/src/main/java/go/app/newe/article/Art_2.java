@@ -97,8 +97,7 @@ public class Art_2 extends AppCompatActivity {
     }
 
     public void back(View view) {
-        Intent intent = new Intent(Art_2.this, Data_Buttons.class);
-        startActivity(intent);
+        finish();
     }
 
 

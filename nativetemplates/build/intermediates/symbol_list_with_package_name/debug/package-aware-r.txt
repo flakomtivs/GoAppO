@@ -1185,6 +1185,7 @@ layout browser_actions_context_menu_row
 layout custom_dialog
 layout gnt_medium_template_view
 layout gnt_small_template_view
+layout m
 layout medium_template_view
 layout notification_action
 layout notification_action_tombstone

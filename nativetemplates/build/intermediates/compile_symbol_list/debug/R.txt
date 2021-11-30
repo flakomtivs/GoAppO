@@ -1184,6 +1184,7 @@ int layout browser_actions_context_menu_row 0x0
 int layout custom_dialog 0x0
 int layout gnt_medium_template_view 0x0
 int layout gnt_small_template_view 0x0
+int layout m 0x0
 int layout medium_template_view 0x0
 int layout notification_action 0x0
 int layout notification_action_tombstone 0x0
